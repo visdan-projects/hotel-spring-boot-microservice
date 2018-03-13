@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: inventoryservice
+  profiles:
+    active:
+      dev
+  cloud:
+    config:
+      enabled: true

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: apigatewayservice
+  profiles:
+    active:
+      dev
+  cloud:
+    config:
+      enabled: true

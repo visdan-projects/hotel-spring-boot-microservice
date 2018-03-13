@@ -1,0 +1,26 @@
+server:
+  port: 3341
+
+spring:
+  zipkin:
+    baseUrl:  http://localhost:9222
+
+security:
+  oauth2:
+   resource:
+      userInfoUri: http://localhost:8181/auth/user
+            
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.visdan: DEBUG  

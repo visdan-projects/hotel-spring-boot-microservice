@@ -1,0 +1,79 @@
+version: '2'
+services:
+
+  discoveryservice:
+    image: visdan/hotel-discovery-service:v1
+    ports:
+      - "8761:8761"
+    env_file: discoveryservice.env
+
+  configservice:
+    image: visdan/hotel-config-service:v1
+    ports:
+      - "8888:8888"
+    depends_on:
+       - discoveryservice
+    env_file: configservice.env
+
+  tracingservice:
+    image: visdan/hotel-tracing-service:v1
+    ports:
+      - "9222:9222"
+    env_file: tracingservice.env
+
+  apigatewayservice:
+    image: visdan/hotel-api-gateway-service:v1
+    ports:
+      - "5555:5555"
+    depends_on:
+      - discoveryservice
+      - tracingservice
+      - configservice
+    env_file: apigatewayservice.env
+
+  postgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    env_file: docker-postgres-secret.env
+   
+  mongo:
+    image: mongo:3.3
+    ports:
+      - "27017:27017"
+  
+  authenticationservice:
+    image: visdan/hotel-authentication-service:v1
+    ports:
+      - "8181:8181"
+    depends_on:
+      - discoveryservice
+      - configservice
+      - tracingservice
+      - apigatewayservice
+    env_file: authservice.env
+
+  inventoryservice:
+    image: visdan/hotel-inventory-service:v1
+    ports:
+      - "3341:3341"
+    depends_on:
+      - discoveryservice
+      - configservice
+      - tracingservice
+      - apigatewayservice
+      - authenticationservice
+    env_file: inventoryservice.env
+      
+  accountservice:
+    image: visdan/hotel-account-service:v1
+    ports:
+      - "7432:7432"
+    depends_on:
+      - discoveryservice
+      - configservice
+      - tracingservice
+      - apigatewayservice
+      - authenticationservice
+    env_file: accountservice.env
+      

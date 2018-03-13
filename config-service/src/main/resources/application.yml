@@ -1,0 +1,20 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        encrypt.enabled: false
+        git:
+          uri: https://github.com/visdan-projects/hotel-configuration-repository/
+          searchPaths: account-service,api-gateway-service,authentication-service,inventory-service
+          username: visdan-contributor
+          password: visdanPassw0rd5
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.visdan: DEBUG
