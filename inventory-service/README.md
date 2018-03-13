@@ -1,0 +1,2 @@
+# Inventory Service - Spring Boot
+
