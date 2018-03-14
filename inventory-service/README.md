@@ -6,7 +6,7 @@ The Inventory Service is registered with the API Gateway, and the gateway will r
 
 ### Unprotected Resources
 
-Searching for room availability, or information on a particular room, can be achieved through unprotected resources `/inventory/v1/rooms` or `/inventory/v1rooms/{roomId}`. 
+Searching for room availability, or information on a particular room, can be achieved through unprotected resources `/inventory/v1/rooms` or `/inventory/v1/rooms/{roomId}`. 
 
 ![GetRooms](https://i.imgur.com/pr6ZaEP.jpg)
 
