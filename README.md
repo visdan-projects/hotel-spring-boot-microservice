@@ -55,7 +55,7 @@ After the images are built, a build success message will appear:
 
 ![Build Success](https://i.imgur.com/JFAiuzG.jpg)
 
-- After successful build, enter the below command to start the Docker image:
+- After a successful build, enter the below command to start the Docker image:
 
 ```
 $ docker-compose -f docker/common/docker-compose.yml up
@@ -69,7 +69,7 @@ Docker will pull in necessary dependencies and start each of the services.
 
 In order to determine which containers are currently running in Docker, the `docker ps -a` command can be used. 
 
-To stop and remove any currently running containers, the below commands can be used (`-a` switch show the container and `-q` supplies the ID to the `stop` and `rm` commands):
+To stop and remove any currently running containers, the below commands can be used (`-a` switch shows the container and `-q` supplies the ID to the `stop` and `rm` commands):
 
 ```
 $ docker stop $(docker ps -a -q)
